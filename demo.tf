@@ -14,5 +14,5 @@ data "aws_ami" "app_ami" {
 resource "aws_instance" "myweb" {
     ami = data.aws_ami.app_ami.id
     #"00ee4df451840fa9d"
-    instance_type = var.instance_size
+    instance_type = "t2.micro"
 }
