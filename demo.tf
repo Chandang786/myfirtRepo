@@ -11,8 +11,12 @@ data "aws_ami" "app_ami" {
   }
 }
 
+variable "instance_type" {
+  default = "t2.micro"
+}
+
 resource "aws_instance" "myweb" {
     ami = data.aws_ami.app_ami.id
     #"00ee4df451840fa9d"
-    instance_type = "t2.micro"
+    instance_type = var.instance_type
 }
